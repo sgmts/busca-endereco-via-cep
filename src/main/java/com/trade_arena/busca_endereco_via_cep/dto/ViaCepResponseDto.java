@@ -46,5 +46,5 @@ public class ViaCepResponseDto {
     private String siafi;
 
     @JsonProperty("erro")
-    private String erro;
+    private String erro = "false";
 }

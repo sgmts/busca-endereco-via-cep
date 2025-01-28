@@ -27,11 +27,13 @@ public class CepServiceImpl implements CepService {
         }
 
         try {
+            // Monta a URL da requisição
             String url = String.format(ENDERECO, cep);
+            // Faz a requisição para a API ViaCEP
             ViaCepResponseDto response = restTemplate.getForObject(url, ViaCepResponseDto.class);
 
-            // Verifica se o CEP foi encontrado
-            if (response.getErro().equals("true") || response.getCep() == null) {
+            // Verifica se a resposta é nula ou se a API retornou erro explícito
+            if (response == null || "true".equals(response.getErro()) || response.getCep() == null) {
                 throw new CepNaoEncontradoException();
             }
 
