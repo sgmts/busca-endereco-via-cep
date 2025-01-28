@@ -45,4 +45,6 @@ public class ViaCepResponseDto {
     @JsonProperty("siafi")
     private String siafi;
 
+    @JsonProperty("erro")
+    private String erro;
 }
