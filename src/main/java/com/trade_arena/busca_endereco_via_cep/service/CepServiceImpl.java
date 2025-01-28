@@ -5,6 +5,7 @@ import com.trade_arena.busca_endereco_via_cep.exceptions.CepInvalidoException;
 import com.trade_arena.busca_endereco_via_cep.exceptions.CepNaoEncontradoException;
 import com.trade_arena.busca_endereco_via_cep.exceptions.ErroConsultaCepException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,7 +14,9 @@ import java.util.regex.Pattern;
 @Service
 public class CepServiceImpl implements CepService {
 
-    private static final String ENDERECO = "https://viacep.com.br/ws/%s/json/";
+    @Value("${api.viacep.url}")
+    private  String urlViaCep;
+
     private static final Pattern CEP_PATTERN = Pattern.compile("\\d{5}-?\\d{3}");
 
 
@@ -28,7 +31,7 @@ public class CepServiceImpl implements CepService {
 
         try {
             // Monta a URL da requisição
-            String url = String.format(ENDERECO, cep);
+            String url = String.format(urlViaCep, cep);
             // Faz a requisição para a API ViaCEP
             ViaCepResponseDto response = restTemplate.getForObject(url, ViaCepResponseDto.class);
 
