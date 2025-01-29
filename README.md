@@ -7,7 +7,6 @@ O objetivo do projeto é demonstrar boas práticas de desenvolvimento, arquitetu
 - Java 17 
 - Spring Boot 3.x 
 - RestTemplate para consumo de APIs externas 
-- SpringDoc OpenAPI para documentação dos endpoints 
 - Lombok para simplificar o código 
 - Maven para gerenciamento de dependências
 
@@ -71,9 +70,8 @@ mvn spring-boot:run
 ```
 ---
 ## 🧪 Testes
-1. Utilize o Swagger para explorar os endpoints:
-   - Acesse: http://localhost:8080/swagger-ui.html.
-2. Ou utilize ferramentas como Postman ou Insomnia.
+- Utilize ferramentas como Postman ou Insomnia para explorar os endpoints
+
 ---
 ## 🤝 Contribuições
 Sinta-se à vontade para clonar este repositório e sugerir melhorias. 
