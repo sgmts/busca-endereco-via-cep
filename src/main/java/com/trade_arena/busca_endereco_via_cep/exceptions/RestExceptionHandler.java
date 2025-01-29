@@ -15,19 +15,19 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     private static final String ERRO_DEFAULT = "Erro Interno!";
 
     @ExceptionHandler(CepInvalidoException.class)
-    private ResponseEntity<RestErrorMessage> cepInvalidoExceptionHandler( CepInvalidoException e) {
+    public ResponseEntity<RestErrorMessage> cepInvalidoExceptionHandler(CepInvalidoException e) {
         RestErrorMessage threatResponse = new RestErrorMessage("1001",CEP_INVALIDO);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(threatResponse);
     }
 
     @ExceptionHandler(CepNaoEncontradoException.class)
-    private ResponseEntity<RestErrorMessage> CepNaoEncontradoExceptionHandler( CepNaoEncontradoException e) {
+    public ResponseEntity<RestErrorMessage> CepNaoEncontradoExceptionHandler( CepNaoEncontradoException e) {
         RestErrorMessage threatResponse = new RestErrorMessage("1002",CEP_NAO_ENCONTRADO);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(threatResponse);
     }
 
     @ExceptionHandler(ErroConsultaCepException.class)
-    private ResponseEntity<RestErrorMessage> erroConsultaCepExceptionHandler( ErroConsultaCepException e) {
+    public ResponseEntity<RestErrorMessage> erroConsultaCepExceptionHandler( ErroConsultaCepException e) {
         RestErrorMessage threatResponse = new RestErrorMessage("1003 ",ERRO_DEFAULT);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(threatResponse);
     }

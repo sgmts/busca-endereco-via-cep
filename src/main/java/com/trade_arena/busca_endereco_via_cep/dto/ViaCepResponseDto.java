@@ -2,8 +2,10 @@ package com.trade_arena.busca_endereco_via_cep.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class ViaCepResponseDto {
 
     @JsonProperty("cep")
