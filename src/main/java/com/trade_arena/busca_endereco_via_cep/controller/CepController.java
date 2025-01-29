@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class CepController {
 
     @Autowired
@@ -21,6 +21,4 @@ public class CepController {
     public ResponseEntity<ViaCepResponseDto> buscarCep(@PathVariable String cep) {
         return ResponseEntity.status(HttpStatus.OK).body(cepService.buscarCep(cep));
     }
-
-
 }

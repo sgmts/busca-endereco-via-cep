@@ -18,6 +18,7 @@ public class CepServiceImpl implements CepService {
     private  String urlViaCep;
 
     private static final Pattern CEP_PATTERN = Pattern.compile("\\d{5}-?\\d{3}");
+    private static final String  ERRO_RESPONSE_EXPLICITO = "true";
 
 
     @Autowired
@@ -36,7 +37,7 @@ public class CepServiceImpl implements CepService {
             ViaCepResponseDto response = restTemplate.getForObject(url, ViaCepResponseDto.class);
 
             // Verifica se a resposta é nula ou se a API retornou erro explícito
-            if (response == null || "true".equals(response.getErro()) || response.getCep() == null) {
+            if (response == null || ERRO_RESPONSE_EXPLICITO.equals(response.getErro()) || response.getCep() == null) {
                 throw new CepNaoEncontradoException();
             }
 
