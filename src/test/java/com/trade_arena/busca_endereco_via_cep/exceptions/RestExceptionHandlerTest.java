@@ -29,7 +29,7 @@ class RestExceptionHandlerTest {
         CepNaoEncontradoException exception = new CepNaoEncontradoException();
         ResponseEntity<RestErrorMessage> response = handler.CepNaoEncontradoExceptionHandler(exception);
 
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertEquals("CEP não encontrado", response.getBody().getMessage());
     }
 
