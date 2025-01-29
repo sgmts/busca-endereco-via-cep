@@ -27,7 +27,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(CepNaoEncontradoException.class)
     public ResponseEntity<RestErrorMessage> CepNaoEncontradoExceptionHandler( CepNaoEncontradoException e) {
         RestErrorMessage threatResponse = new RestErrorMessage(CODE_1002,CEP_NAO_ENCONTRADO);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(threatResponse);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(threatResponse);
     }
 
     @ExceptionHandler(ErroConsultaCepException.class)
